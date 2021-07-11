@@ -7,8 +7,7 @@ import {
     UserGroupIcon, ViewGridIcon
 } from '@heroicons/react/solid'
 import { FlagIcon, PlayIcon, SearchIcon, ShoppingCartIcon } from '@heroicons/react/outline'
-
-
+import HeaderIcon from './HeaderIcon';
 
 
 Header.propTypes = {
@@ -31,7 +30,7 @@ function Header(props) {
                     className="h-6 text-gray-600"
                 />
                 <input
-                    className="flex ml-2 items-center bg-transparent outline-none placeholder-gray-500"
+                    className="hidden md:flex ml-2 items-center bg-transparent outline-none placeholder-gray-500"
                     type="text"
                     placeholder="Search Icon"
                 />
@@ -42,20 +41,37 @@ function Header(props) {
     }
 
     const renderHeaderCenter = () => {
-        return <div></div>
+        return <div className="flex justify-center flex-grow">
+            <div className="flex space-x-6">
+                <HeaderIcon active Icon={HomeIcon} />
+                <HeaderIcon Icon={FlagIcon} />
+                <HeaderIcon Icon={PlayIcon} />
+                <HeaderIcon Icon={ShoppingCartIcon} />
+                <HeaderIcon Icon={UserGroupIcon} />
+            </div>
+        </div>
     }
 
     const renderHeaderRight = () => {
-        return <div></div>
+        return <div className="flex items-center sm:space-x-2 justify-end">
+            <p className="whitespace-normal font-semibold pr-3 break-normal	">Chuong Tran</p>
+            <ViewGridIcon className="icon"/>
+            <ChatIcon className="icon"/>
+            <BellIcon className="icon"/>
+            <ChevronDownIcon className="icon"/>
+        </div>
     }
 
-
-
     return (
-        <div>
-            <h1 className="text-6xl">Header</h1>
+        <div className="sticky top-0 z-50 bg-white flex items-center p-2 
+            lg:px-5 shadow-md
+        ">
             {/* left */}
             {renderHeaderLeft()}
+            {/* center */}
+            {renderHeaderCenter()}
+            {/* right */}
+            {renderHeaderRight()}
         </div>
     );
 }
