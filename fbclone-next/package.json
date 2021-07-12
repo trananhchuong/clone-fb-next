@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 7070",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -11,6 +11,7 @@
   "dependencies": {
     "@heroicons/react": "^1.0.2",
     "next": "11.0.1",
+    "next-auth": "^3.27.3",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
