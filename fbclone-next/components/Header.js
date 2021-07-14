@@ -8,6 +8,7 @@ import {
 } from '@heroicons/react/solid'
 import { FlagIcon, PlayIcon, SearchIcon, ShoppingCartIcon } from '@heroicons/react/outline'
 import HeaderIcon from './HeaderIcon';
+import { signOut, useSession } from 'next-auth/client';
 
 
 Header.propTypes = {
@@ -15,6 +16,8 @@ Header.propTypes = {
 };
 
 function Header(props) {
+
+    const [session] = useSession();
 
     const renderHeaderLeft = () => {
         return <div className="flex items-center">
@@ -54,11 +57,21 @@ function Header(props) {
 
     const renderHeaderRight = () => {
         return <div className="flex items-center sm:space-x-2 justify-end">
+            <Image
+                src={session.user.image}
+                onClick={signOut}
+                width="40"
+                height="40"
+                layout="fixed"
+                alt="img-logo"
+                className="cursor-pointer"
+            />
+
             <p className="whitespace-normal font-semibold pr-3 break-normal	">Chuong Tran</p>
-            <ViewGridIcon className="icon"/>
-            <ChatIcon className="icon"/>
-            <BellIcon className="icon"/>
-            <ChevronDownIcon className="icon"/>
+            <ViewGridIcon className="icon" />
+            <ChatIcon className="icon" />
+            <BellIcon className="icon" />
+            <ChevronDownIcon className="icon" />
         </div>
     }
 
