@@ -64,7 +64,7 @@ function Header(props) {
                 height="40"
                 layout="fixed"
                 alt="img-logo"
-                className="cursor-pointer"
+                className="cursor-pointer rounded-full"
             />
 
             <p className="whitespace-normal font-semibold pr-3 break-normal	">Chuong Tran</p>
